@@ -14,16 +14,16 @@ import com.saeyan.dao.MemberDAO;
 import com.saeyan.dto.MemberVO;
 
 /**
- * Servlet implementation class LoginServlet
+ * Servlet implementation class MemberUpdateServlet
  */
-@WebServlet("/login.do")
-public class LoginServlet extends HttpServlet {
+@WebServlet("/memberUpdate.do")
+public class MemberUpdateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public LoginServlet() {
+	public MemberUpdateServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,12 +34,12 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String url = "member/login.jsp";
-		HttpSession session = request.getSession();
-		if (session.getAttribute("loginUser") != null) {
-			url = "main.jsp"; 
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
+		String userid = request.getParameter("userid");
+		MemberDAO mDao = MemberDAO.getInstance();
+		MemberVO mVo = mDao.getMember(userid);
+		request.setAttribute("mVo", mVo);
+		RequestDispatcher dispatcher = request
+				.getRequestDispatcher("member/memberUpdate.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -49,24 +49,23 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String url = "member/login.jsp";
+		request.setCharacterEncoding("UTF-8"); // 한글 깨짐을 방지
+		// 폼에서 입력한 회원 정보 얻어오기
 		String userid = request.getParameter("userid");
 		String pwd = request.getParameter("pwd");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String admin = request.getParameter("admin");
+		// 회원 정보를 저장할 객체 생성
+		MemberVO mVo = new MemberVO();
+		mVo.setUserid(userid);
+		mVo.setPwd(pwd);
+		mVo.setEmail(email);
+		mVo.setPhone(phone);
+		mVo.setAdmin(Integer.parseInt(admin));
 		MemberDAO mDao = MemberDAO.getInstance();
-		int result = mDao.userCheck(userid, pwd);
-		if (result == 1) {
-			MemberVO mVo = mDao.getMember(userid);
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", mVo);
-			request.setAttribute("message", "");
-			url = "main.jsp";
-		} else if (result == 0) {
-			request.setAttribute("message", "鍮꾨�踰덊샇媛� 留욎� �븡�뒿�땲�떎.");
-		} else if (result == -1) {
-			request.setAttribute("message", "議댁옱�븯吏� �븡�뒗 �쉶�썝�엯�땲�떎.");
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-		dispatcher.forward(request, response);
+		mDao.updateMember(mVo);
+		response.sendRedirect("login.do");
 	}
 
 }
