@@ -29,7 +29,7 @@ public class MemberDAO {
 		return conn;
 	}
 
-	// 사용자 인증시 사용하는 메소드
+	// 
 	public int userCheck(String userid, String pwd) {
 		int result = -1;
 		String sql = "select pwd from member where userid=?";
@@ -68,7 +68,7 @@ public class MemberDAO {
 		return result;
 	}
 
-	// 아이디로 회원 정보 가져오는 메소드
+	// 
 	public MemberVO getMember(String userid) {
 		MemberVO mVo = null;
 		String sql = "select * from member where userid=?";

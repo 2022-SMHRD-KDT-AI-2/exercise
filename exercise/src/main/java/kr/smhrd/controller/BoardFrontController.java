@@ -23,7 +23,7 @@ public class BoardFrontController extends HttpServlet {
 		String reqPath=request.getRequestURI();
 		//System.out.println(reqPath); // /web/boardDelete.do
 		String cpath=request.getContextPath(); 
-		//System.out.println(cpath); // /web
+		//System.out.println(Path); // /web
 		String command=reqPath.substring(cpath.length());
 		System.out.println(command); // /boardUpdate.do		
 		//2. 요청에 따른 분기작업
