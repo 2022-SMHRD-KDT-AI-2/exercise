@@ -19,7 +19,7 @@
     <div class="panel-body">
 		<a href="/web/boardList.do">게시판리스트</a>
 	</div>
-    <div class="panel-footer">인공지능 융합서비스 개발자 과정(김유진)</div>
+    <div class="panel-footer">인공지능 융합서비스 개발자 과정()</div>
   </div>
 </div>
 
