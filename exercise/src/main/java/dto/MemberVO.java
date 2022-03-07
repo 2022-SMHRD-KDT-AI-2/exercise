@@ -1,4 +1,4 @@
-package kr.smhrd.entity;
+package dto;
 
 public class MemberVO {
 	private String name;

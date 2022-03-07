@@ -1,4 +1,4 @@
-package com.saeyan.controller;
+package controller;
 
 import java.io.IOException;
 
@@ -14,16 +14,16 @@ import com.saeyan.dao.MemberDAO;
 import com.saeyan.dto.MemberVO;
 
 /**
- * Servlet implementation class JoinServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/join.do")
-public class JoinServlet extends HttpServlet {
+@WebServlet("/login.do")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public JoinServlet() {
+	public LoginServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -34,8 +34,12 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("member/join.jsp");
+		String url = "member/login.jsp";
+		HttpSession session = request.getSession();
+		if (session.getAttribute("loginUser") != null) {// �씠誘� 濡쒓렇�씤 �맂 �궗�슜�옄�씠硫�
+			url = "main.jsp"; // 硫붿씤 �럹�씠吏�濡� �씠�룞�븳�떎.
+		}
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
 
@@ -45,31 +49,23 @@ public class JoinServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
+		String url = "member/login.jsp";
 		String userid = request.getParameter("userid");
 		String pwd = request.getParameter("pwd");
-		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
-		String admin = request.getParameter("admin");
-		MemberVO mVo = new MemberVO();
-		mVo.setName(name);
-		mVo.setUserid(userid);
-		mVo.setPwd(pwd);
-		mVo.setEmail(email);
-		mVo.setPhone(phone);
-		mVo.setAdmin(Integer.parseInt(admin));
 		MemberDAO mDao = MemberDAO.getInstance();
-		int result = mDao.insertMember(mVo);
-		HttpSession session = request.getSession();
+		int result = mDao.userCheck(userid, pwd);
 		if (result == 1) {
-			session.setAttribute("userid", mVo.getUserid());
-			request.setAttribute("message", "회원 가입에 성공했습니다.");
-		} else {
-			request.setAttribute("message", "회원 가입에 실패했습니다.");
+			MemberVO mVo = mDao.getMember(userid);
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", mVo);
+			request.setAttribute("message", "�쉶�썝 媛��엯�뿉 �꽦怨듯뻽�뒿�땲�떎.");
+			url = "main.jsp";
+		} else if (result == 0) {
+			request.setAttribute("message", "鍮꾨�踰덊샇媛� 留욎� �븡�뒿�땲�떎.");
+		} else if (result == -1) {
+			request.setAttribute("message", "議댁옱�븯吏� �븡�뒗 �쉶�썝�엯�땲�떎.");
 		}
-		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("member/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
 	}
 
