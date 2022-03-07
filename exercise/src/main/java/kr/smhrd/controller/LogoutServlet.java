@@ -1,4 +1,4 @@
-package controller;
+package kr.smhrd.controller;
 
 import java.io.IOException;
 
@@ -8,20 +8,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.saeyan.dao.MemberDAO;
+import com.saeyan.dto.MemberVO;
 
 /**
- * Servlet implementation class IdCheckServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/idCheck.do")
-public class IdCheckServlet extends HttpServlet {
+@WebServlet("/logout.do")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public IdCheckServlet() {
+	public LogoutServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,13 +34,10 @@ public class IdCheckServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String userid = request.getParameter("userid");
-		MemberDAO mDao = MemberDAO.getInstance();
-		int result = mDao.confirmID(userid);
-		request.setAttribute("userid", userid);
-		request.setAttribute("result", result);
+		HttpSession session = request.getSession();
+		session.invalidate();
 		RequestDispatcher dispatcher = request
-				.getRequestDispatcher("member/idcheck.jsp");
+				.getRequestDispatcher("member/login.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -48,7 +47,7 @@ public class IdCheckServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }

@@ -29,7 +29,7 @@ public class MemberDAO {
 		return conn;
 	}
 
-	// 
+	//
 	public int userCheck(String userid, String pwd) {
 		int result = -1;
 		String sql = "select pwd from member where userid=?";
@@ -68,7 +68,7 @@ public class MemberDAO {
 		return result;
 	}
 
-	// 
+	//
 	public MemberVO getMember(String userid) {
 		MemberVO mVo = null;
 		String sql = "select * from member where userid=?";
