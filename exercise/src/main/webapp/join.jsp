@@ -123,7 +123,7 @@
 
 
 
-                <!-- JOIN BTN-->
+                <!-- *** 가입하기 버튼을 누르면 설문조사(survey.jsp)로 넘어가요 *** -->
                 <div class="btn_area">
                     <button type="button" id="btnJoin">
                         <span>가입하기</span>
