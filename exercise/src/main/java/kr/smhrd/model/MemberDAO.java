@@ -1,4 +1,4 @@
-package com.saeyan.dao;
+package kr.smhrd.model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

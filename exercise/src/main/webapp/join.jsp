@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lnag="ko">
     <head>
         <meta charset="UTF-8">
-        <title> »∏ø¯∞°¿‘</title>
-        <link rel="stylesheet" href="../css/»∏ø¯∞°¿‘.css">
+        <title> ÌöåÏõêÍ∞ÄÏûÖ</title>
+        <link rel="stylesheet" href="../css/ÌöåÏõêÍ∞ÄÏûÖ.css">
         
     </head>
     <body>
         <!-- header -->
         <div id="header">
-            <a><img src="../img/º’±€ææ2.jpg" id="logo"></a>
+            <a><img src="../img/ÏÜêÍ∏ÄÏî®2.jpg" id="logo"></a>
         </div>
 
 
@@ -24,7 +24,7 @@
                 <!-- Nick -->
                 <div>
                     <h3 class="join_title">
-                        <label for="nick">¥–≥◊¿”</label>
+                        <label for="nick">ÎãâÎÑ§ÏûÑ</label>
                     </h3>
                     <span class="box int_nick">
                         <input type="text" id="id" class="int" maxlength="20">
@@ -35,7 +35,7 @@
                 <!-- ID -->
                 <div>
                     <h3 class="join_title">
-                        <label for="id">æ∆¿Ãµ</label>
+                        <label for="id">ÏïÑÏù¥Îîî</label>
                     </h3>
                     
                     <span class="box int_id">
@@ -45,10 +45,10 @@
 
                 <!-- PW1 -->
                 <div>
-                    <h3 class="join_title"><label for="pswd1">∫Òπ–π¯»£</label></h3>
+                    <h3 class="join_title"><label for="pswd1">ÎπÑÎ∞ÄÎ≤àÌò∏</label></h3>
                     <span class="box int_pass">
                         <input type="text" id="pswd1" class="int" maxlength="20">
-                        <span id="alertTxt">ªÁøÎ∫“∞°</span>
+                        <span id="alertTxt">ÏÇ¨Ïö©Î∂àÍ∞Ä</span>
                         <img src="../img/icon_pass.png" id="pswd1_img1" class="pswdImg">
                     </span>
                     <span class="error_next_box"></span>
@@ -56,7 +56,7 @@
 
                 <!-- PW2 -->
                 <div>
-                    <h3 class="join_title"><label for="pswd2">∫Òπ–π¯»£ ¿Á»Æ¿Œ</label></h3>
+                    <h3 class="join_title"><label for="pswd2">ÎπÑÎ∞ÄÎ≤àÌò∏ Ïû¨ÌôïÏù∏</label></h3>
                     <span class="box int_pass_check">
                         <input type="text" id="pswd2" class="int" maxlength="20">
                         <img src="../img/icon_pass.png" id="pswd2_img1" class="pswdImg">
@@ -66,13 +66,13 @@
 
                 <!-- BIRTH -->
                 <div>
-                    <h3 class="join_title"><label for="yy">ª˝≥‚ø˘¿œ</label></h3>
+                    <h3 class="join_title"><label for="yy">ÏÉùÎÖÑÏõîÏùº</label></h3>
 
                     <div id="bir_wrap">
                         <!-- BIRTH_YY -->
                         <div id="bir_yy">
                             <span class="box">
-                                <input type="text" id="yy" class="int" maxlength="4" placeholder="≥‚(4¿⁄)">
+                                <input type="text" id="yy" class="int" maxlength="4" placeholder="ÎÖÑ(4Ïûê)">
                             </span>
                         </div>
 
@@ -80,7 +80,7 @@
                         <div id="bir_mm">
                             <span class="box">
                                 <select id="mm" class="sel">
-                                    <option>ø˘</option>
+                                    <option>Ïõî</option>
                                     <option value="01">1</option>
                                     <option value="02">2</option>
                                     <option value="03">3</option>
@@ -100,7 +100,7 @@
                         <!-- BIRTH_DD -->
                         <div id="bir_dd">
                             <span class="box">
-                                <input type="text" id="dd" class="int" maxlength="2" placeholder="¿œ">
+                                <input type="text" id="dd" class="int" maxlength="2" placeholder="Ïùº">
                             </span>
                         </div>
 
@@ -110,15 +110,15 @@
 
                 <!-- GENDER -->
                 <div>
-                    <h3 class="join_title"><label for="gender">º∫∫∞</label></h3>
+                    <h3 class="join_title"><label for="gender">ÏÑ±Î≥Ñ</label></h3>
                     <span class="box gender_code">
                         <select id="gender" class="sel">
-                            <option>º∫∫∞</option>
-                            <option value="M">≥≤¿⁄</option>
-                            <option value="F">ø©¿⁄</option>
+                            <option>ÏÑ±Î≥Ñ</option>
+                            <option value="M">ÎÇ®Ïûê</option>
+                            <option value="F">Ïó¨Ïûê</option>
                         </select>                            
                     </span>
-                    <span class="error_next_box">« ºˆ ¡§∫∏¿‘¥œ¥Ÿ.</span>
+                    <span class="error_next_box">ÌïÑÏàò Ï†ïÎ≥¥ÏûÖÎãàÎã§.</span>
                 </div>
 
 
@@ -126,7 +126,7 @@
                 <!-- JOIN BTN-->
                 <div class="btn_area">
                     <button type="button" id="btnJoin">
-                        <span>∞°¿‘«œ±‚</span>
+                        <span>Í∞ÄÏûÖÌïòÍ∏∞</span>
                     </button>
                 </div>
 
