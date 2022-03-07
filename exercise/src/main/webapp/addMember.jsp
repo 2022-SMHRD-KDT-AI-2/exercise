@@ -5,9 +5,9 @@
 	pageEncoding="UTF-8"%>
 <%!Connection conn = null;
 	PreparedStatement pstmt = null;
-	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	String uid = "scott";
-	String pass = "tiger";
+	String url = "jdbc:oracle:thin:@localhost:1524:XE";
+	String uid = "cgi_5_0216_2";
+	String pass = "smhrd2";
 	String sql = "insert into member values(?, ?, ?, ?, ?, ?)";%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,6 +55,6 @@
 		}//finally의 끝
 	%>
 	<h3>회원 가입 성공</h3>
-	<a href="01_allMember.jsp"> 회원 전체 목록 보기 </a> }
+	<a href="allMember.jsp"> 회원 전체 목록 보기 </a> }
 </body>
 </html>

@@ -64,9 +64,9 @@ public class JoinServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if (result == 1) {
 			session.setAttribute("userid", mVo.getUserid());
-			request.setAttribute("message", "�쉶�썝 媛��엯�뿉 �꽦怨듯뻽�뒿�땲�떎.");
+			request.setAttribute("message", "회원 가입에 성공했습니다.");
 		} else {
-			request.setAttribute("message", "�쉶�썝 媛��엯�뿉 �떎�뙣�뻽�뒿�땲�떎.");
+			request.setAttribute("message", "회원 가입에 실패했습니다.");
 		}
 		RequestDispatcher dispatcher = request
 				.getRequestDispatcher("member/login.jsp");

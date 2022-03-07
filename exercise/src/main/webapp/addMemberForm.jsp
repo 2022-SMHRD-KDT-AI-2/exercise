@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h2>회원의 정보 입력 폼</h2>
-	<form method="post" action="02_addMember.jsp">
+	<form method="post" action="addMember.jsp">
 		<table>
 			<tr>
 				<td>이름</td>

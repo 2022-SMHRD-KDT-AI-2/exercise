@@ -1,4 +1,4 @@
-package controller;
+package com.saeyan.controller;
 
 import java.io.IOException;
 
@@ -49,14 +49,14 @@ public class MemberUpdateServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8"); // �븳湲� 源⑥쭚�쓣 諛⑹�
-		// �뤌�뿉�꽌 �엯�젰�븳 �쉶�썝 �젙蹂� �뼸�뼱�삤湲�
+		request.setCharacterEncoding("UTF-8"); // 한글 깨짐을 방지
+		// 폼에서 입력한 회원 정보 얻어오기
 		String userid = request.getParameter("userid");
 		String pwd = request.getParameter("pwd");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
 		String admin = request.getParameter("admin");
-		// �쉶�썝 �젙蹂대�� ���옣�븷 媛앹껜 �깮�꽦
+		// 회원 정보를 저장할 객체 생성
 		MemberVO mVo = new MemberVO();
 		mVo.setUserid(userid);
 		mVo.setPwd(pwd);

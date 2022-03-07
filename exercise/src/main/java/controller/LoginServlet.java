@@ -1,4 +1,4 @@
-package controller;
+package com.saeyan.controller;
 
 import java.io.IOException;
 
@@ -36,8 +36,8 @@ public class LoginServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String url = "member/login.jsp";
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginUser") != null) {// �씠誘� 濡쒓렇�씤 �맂 �궗�슜�옄�씠硫�
-			url = "main.jsp"; // 硫붿씤 �럹�씠吏�濡� �씠�룞�븳�떎.
+		if (session.getAttribute("loginUser") != null) {// 이미 로그인 된 사용자이면
+			url = "main.jsp"; // 메인 페이지로 이동한다.
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);
@@ -58,12 +58,12 @@ public class LoginServlet extends HttpServlet {
 			MemberVO mVo = mDao.getMember(userid);
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", mVo);
-			request.setAttribute("message", "�쉶�썝 媛��엯�뿉 �꽦怨듯뻽�뒿�땲�떎.");
+			request.setAttribute("message", "회원 가입에 성공했습니다.");
 			url = "main.jsp";
 		} else if (result == 0) {
-			request.setAttribute("message", "鍮꾨�踰덊샇媛� 留욎� �븡�뒿�땲�떎.");
+			request.setAttribute("message", "비밀번호가 맞지 않습니다.");
 		} else if (result == -1) {
-			request.setAttribute("message", "議댁옱�븯吏� �븡�뒗 �쉶�썝�엯�땲�떎.");
+			request.setAttribute("message", "존재하지 않는 회원입니다.");
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(url);
 		dispatcher.forward(request, response);

@@ -1,4 +1,4 @@
-package dao;
+package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +29,7 @@ public class MemberDAO {
 		return conn;
 	}
 
-	// �궗�슜�옄 �씤利앹떆 �궗�슜�븯�뒗 硫붿냼�뱶
+	// �궗�슜�옄 �씤利앹?�� �궗�슜�븯�뒗 硫붿?���뱶
 	public int userCheck(String userid, String pwd) {
 		int result = -1;
 		String sql = "select pwd from member where userid=?";
@@ -68,7 +68,7 @@ public class MemberDAO {
 		return result;
 	}
 
-	// �븘�씠�뵒濡� �쉶�썝 �젙蹂� 媛��졇�삤�뒗 硫붿냼�뱶
+	// �븘�씠�뵒濡� �쉶�썝 �젙蹂� 媛��졇�삤�뒗 硫붿?���뱶
 	public MemberVO getMember(String userid) {
 		MemberVO mVo = null;
 		String sql = "select * from member where userid=?";

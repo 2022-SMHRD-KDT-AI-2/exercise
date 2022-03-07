@@ -1,4 +1,4 @@
-package dto;
+package entity;
 
 public class MemberVO {
 	private String name;

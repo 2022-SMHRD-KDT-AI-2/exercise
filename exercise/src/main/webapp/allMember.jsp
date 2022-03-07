@@ -8,9 +8,9 @@
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	String uid = "scott";
-	String pass = "tiger";
+	String url = "jdbc:oracle:thin:@localhost:1524:XE";
+	String uid = "cgi_5_0216_2";
+	String pass = "smhrd2";
 	String sql = "select * from member";%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
