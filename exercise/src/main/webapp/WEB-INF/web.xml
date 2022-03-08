@@ -8,16 +8,17 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
+    <welcome-file>home.jsp</welcome-file>
   </welcome-file-list>
   
   <!-- FrontController mapping -->
   <servlet>
-  	<servlet-name>BoardFrontController</servlet-name>
-  	<servlet-class>kr.smhrd.controller.BoardFrontController</servlet-class>
+  	<servlet-name>FrontController</servlet-name>
+  	<servlet-class>kr.smhrd.controller.FrontController</servlet-class>
   </servlet>
   
   <servlet-mapping>
-  	<servlet-name>BoardFrontController</servlet-name>
+  	<servlet-name>FrontController</servlet-name>
   	<url-pattern>*.do</url-pattern>
   </servlet-mapping>
   

@@ -14,7 +14,7 @@ public class HandlerMapping {
        mappings.put("/boardUpdateForm.do", new BoardUpdateFormController());
        mappings.put("/boardUpdate.do", new BoardUpdateController());
        //새로운 요청이 발생하면 여기서부터 출발~~
-       mappings.put("/login.do", new LoginController());
+       mappings.put("/memberForm.do", new MemberFormController());
 	}
 	public Controller getController(String key) {
 		return mappings.get(key);
